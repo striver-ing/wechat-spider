@@ -1,0 +1,10 @@
+*/__pycache__
+*.pyc
+.svn/
+log/*
+*.log
+.env
+test.py
+.DS_Store
+.idea
+.git

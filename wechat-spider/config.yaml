@@ -1,0 +1,31 @@
+mysqldb:
+  ip: localhost
+  port: 3306
+  db: wechat
+  user: root
+  passwd: "123456"
+  auto_create_tables: False # 是否自动建表 建议当表不存在是设置为true，表存在是设置为false，加快软件启动速度
+
+redisdb:
+  ip: localhost
+  port: 6379
+  db: 0
+  passwd:
+
+spider:
+  monitor_interval: 3600 # 公众号扫描新发布文章周期时间间隔 单位秒
+  ignore_haved_crawl_today_article_account: true # 忽略已经抓取到今日发布文章的公众号，即今日不再监测该公众号
+  redis_task_cache_root_key: wechat # reids 中缓存任务的根key 如 wechat:
+  zombie_account_not_publish_article_days: 90 # 连续90天未发布新文章，判定为僵尸账号，日后不再监控
+  spider_interval:
+    min_sleep_time: 5
+    max_sleep_time: 10
+  no_task_sleep_time: 3600 # 当无任务时休眠时间
+  service_port: 8080 # 服务的端口
+  # crawl_time_range: 2019-07-10 00:00:00~2019-07-01 00:00:00 # 抓取的时间范围 若不限制最近时间可写为 ~2019-07-01 00:00:00 若想抓取全部历史则不设置
+  crawl_time_range:
+
+log:
+  level: INFO
+  to_file: false
+  log_path: ./logs/wechat_spider.log
