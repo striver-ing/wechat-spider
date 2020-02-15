@@ -59,7 +59,7 @@ class WechatCapture():
             next_page = "Exception: {}".format(e)
 
         if next_page:
-            # 修改请求头 json 为text
+            # 修改返回求头 json 为text
             flow.response.headers['content-type'] = 'text/html; charset=UTF-8'
             if 'window.location.reload()' in next_page:
                 flow.response.set_text(next_page)
