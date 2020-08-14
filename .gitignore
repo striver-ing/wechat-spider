@@ -3,7 +3,7 @@
 .svn/
 log/*
 *.log
-.env
+venv
 test.py
 .DS_Store
 .idea
