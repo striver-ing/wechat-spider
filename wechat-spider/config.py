@@ -9,6 +9,7 @@ Created on 2019/5/18 11:54 AM
 import os
 import socket
 import sys
+import shutil
 
 import yaml  # pip3 install pyyaml
 
@@ -17,7 +18,10 @@ if 'python' in sys.executable:
 else:
     abs_path = lambda file: os.path.abspath(os.path.join(os.path.dirname(sys.executable), file))  # mac 上打包后 __file__ 指定的是用户根路径，非当执行文件路径
 
-config = yaml.full_load(open(abs_path('config.yaml'), encoding='utf8'))
+if not os.path.exists('./config/config.yaml'):
+    shutil.copyfile('./config.yaml', './config/config.yaml')
+
+config = yaml.full_load(open(abs_path('./config/config.yaml'), encoding='utf8'))
 
 
 def get_host_ip():

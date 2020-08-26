@@ -10,6 +10,8 @@ Created on 2019/5/20 11:47 PM
 from db.mysqldb import MysqlDB
 from config import config
 
+def _create_database(mysqldb, dbname):
+    mysqldb.execute("CREATE DATABASE IF NOT EXISTS `%s`;", (dbname))
 
 def _create_table(mysqldb, sql):
     mysqldb.execute(sql)
@@ -137,6 +139,7 @@ def create_table():
 
     if config.get('mysqldb').get('auto_create_tables'):
         mysqldb = MysqlDB(**config.get('mysqldb'))
+        # _create_database(mysqldb, config.get('mysqldb').get('db'))
         _create_table(mysqldb, wechat_article_list_table)
         _create_table(mysqldb, wechat_article_task_table)
         _create_table(mysqldb, wechat_article_dynamic_table)

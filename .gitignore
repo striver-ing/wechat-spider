@@ -2,9 +2,17 @@
 *.pyc
 .svn/
 log/*
+config/
+.vs/
+.vscode/
 *.log
 venv
+.venv/
 test.py
 .DS_Store
 .idea
 .git
+
+config.yaml
+mariadb_data/
+mitmproxy/
