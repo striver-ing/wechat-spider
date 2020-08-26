@@ -1,6 +1,7 @@
 FROM python:3.7
 
-RUN apt update && \
+RUN cat /etc/apt/sources.list | awk -F[/:] '{print $4}' | sort | uniq | grep -v "^$" | xargs -I{} sed -i 's|{}|mirrors.aliyun.com|g' /etc/apt/sources.list && \
+    apt update && \
     apt install -y psmisc netcat wait-for-it && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
