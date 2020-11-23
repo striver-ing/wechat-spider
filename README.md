@@ -7,6 +7,7 @@
 -->
 
 以下为部署文档，技术文档请查看：[https://t.zsxq.com/7ubmqNJ](https://t.zsxq.com/7ubmqNJ)
+逆向方式抓取的方案请查看：[https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541](https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541)
 
 ## 功能：
 
@@ -20,7 +21,7 @@
 
 打包好的执行文件下载地址
 
-[https://zbkj-service.oss-cn-beijing.aliyuncs.com/wechat/wechat_spider.zip](https://zbkj-service.oss-cn-beijing.aliyuncs.com/wechat/wechat_spider.zip)
+链接: https://pan.baidu.com/s/1hyhj6YnV-L9w8LPx42FFzQ  密码: qnk6
 
 ## 特色：
 
