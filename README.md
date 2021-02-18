@@ -6,7 +6,10 @@
 [http://182.92.108.94:2119/client/wechat_article/document](http://182.92.108.94:2119/client/wechat_article/document)
 -->
 
-以下为部署文档，技术文档请查看：[https://t.zsxq.com/7ubmqNJ](https://t.zsxq.com/7ubmqNJ)
+以下为部署文档
+
+技术文档请查看：[https://t.zsxq.com/7ubmqNJ](https://t.zsxq.com/7ubmqNJ)
+
 逆向方式抓取的方案请查看：[https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541](https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541)
 
 ## 功能：
