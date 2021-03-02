@@ -1,0 +1,39 @@
+version: '3'
+services:
+  wechat-spider:
+    image: wechat-spider:latest
+    build: .
+    restart: always
+    privileged: true
+    command: ["wait-for-it", "mariadb:3306", "--", "python3", "./run.py"]
+    ports:
+      - '8080:8080'
+      - '8081:8081'
+    volumes:
+      - "./mitmproxy:/root/.mitmproxy"
+      - "./config:/app/wechat-spider/config"
+    depends_on:
+      - mariadb
+      - redis
+    links:
+      - redis
+      - mariadb
+  redis:
+    image: redis:3.2
+    restart: always
+  mariadb:
+    image: bitnami/mariadb:10.5-debian-10
+    ports:
+      - '3306:3306'
+    volumes:
+      - './mariadb_data:/bitnami/mariadb'
+    environment:
+      - MARIADB_ROOT_USER=root
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_CHARACTER_SET=utf8mb4
+      - MARIADB_COLLATE=utf8mb4_unicode_ci
+    healthcheck:
+      test: ['CMD', '/opt/bitnami/scripts/mariadb/healthcheck.sh']
+      interval: 15s
+      timeout: 5s
+      retries: 6
