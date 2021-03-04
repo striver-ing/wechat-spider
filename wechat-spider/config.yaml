@@ -29,3 +29,6 @@ log:
   level: INFO
   to_file: false
   log_path: ./logs/wechat_spider.log
+
+mitm:
+  log_level: 0 # mitm框架日志的打印级别。值在0~3之间，值越大，输出的日志信息越详细，默认是1。详见：https://docs.mitmproxy.org/stable/concepts-options/
