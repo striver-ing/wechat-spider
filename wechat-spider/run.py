@@ -25,6 +25,7 @@ def start():
     opts = options.Options(listen_port=port)
     pconf = proxy.config.ProxyConfig(opts)
     m = DumpMaster(opts)
+    m.options.set('flow_detail={mitm_log_level}'.format(mitm_log_level=config.get('mitm').get('log_level')))
     m.server = proxy.server.ProxyServer(pconf)
     m.addons.add(myaddon)
 
