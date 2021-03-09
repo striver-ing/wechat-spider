@@ -1,13 +1,13 @@
 mysqldb:
-  ip: "mariadb"
+  ip: "localhost"
   port: 3306
-  db: test
+  db: wechat
   user: root
-  passwd: "root"
-  auto_create_tables: True # 是否自动建表 建议当表不存在是设置为true，表存在是设置为false，加快软件启动速度
+  passwd: "root123456"
+  auto_create_tables: False # 是否自动建表 建议当表不存在是设置为true，表存在是设置为false，加快软件启动速度
 
 redisdb:
-  ip: redis
+  ip: 127.0.0.1
   port: 6379
   db: 0
   passwd:

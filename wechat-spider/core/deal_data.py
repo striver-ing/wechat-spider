@@ -28,7 +28,7 @@ class DealData:
         """
         __biz = tools.get_param(req_url, "__biz")
 
-        regex = 'id="nickname">(.*?)</strong>'
+        regex = 'var nickname = "(.*?)"\.html\(false\) \|\| "";'
         account = tools.get_info(data, regex, fetch_one=True).strip()
 
         regex = 'profile_avatar">.*?<img src="(.*?)"'
