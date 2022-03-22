@@ -1,5 +1,5 @@
 w3lib==1.22.0
-mitmproxy==7.0.3
+mitmproxy==8.0.0
 better_exceptions==0.2.2
 PyMySQL==0.10.0
 parsel==1.6.0
