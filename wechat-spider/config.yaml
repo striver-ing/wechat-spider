@@ -24,6 +24,7 @@ spider:
   service_port: 8080 # 服务的端口
   # crawl_time_range: 2019-07-10 00:00:00~2019-07-01 00:00:00 # 抓取的时间范围 若不限制最近时间可写为 ~2019-07-01 00:00:00 若想抓取全部历史则不设置
   crawl_time_range:
+  crawl_article: true # 是否采集详情
 
 log:
   level: INFO

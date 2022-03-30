@@ -6,11 +6,13 @@ Created on 2019/5/11 6:37 PM
 ---------
 @author:
 """
-from utils.selector import Selector
+import re
+
 import utils.tools as tools
-from utils.log import log
 from core import data_pipeline
 from core.task_manager import TaskManager
+from utils.log import log
+from utils.selector import Selector
 
 
 class DealData:
@@ -151,8 +153,8 @@ class DealData:
             )
             if is_reach:
                 log.info("采集到上次发布时间 公众号 {} 采集完成".format(__biz))
-                new_last_publish_time = self._task_manager.get_new_last_article_publish_time(
-                    __biz
+                new_last_publish_time = (
+                    self._task_manager.get_new_last_article_publish_time(__biz)
                 )
                 self._task_manager.update_account_last_publish_time(
                     __biz, new_last_publish_time
@@ -174,8 +176,8 @@ class DealData:
             )
             if publish_time_status == TaskManager.OVER_MIN_TIME_RANGE:
                 log.info("公众号 {} 超过采集时间范围 采集完成".format(__biz))
-                new_last_publish_time = self._task_manager.get_new_last_article_publish_time(
-                    __biz
+                new_last_publish_time = (
+                    self._task_manager.get_new_last_article_publish_time(__biz)
                 )
                 self._task_manager.update_account_last_publish_time(
                     __biz, new_last_publish_time
@@ -224,6 +226,12 @@ class DealData:
         @result:
         """
         try:
+            if re.search("操作频繁，请稍后再试", text):
+                log.info("文章列表接口被封堵，一天后再采集")
+                return self._task_manager.get_task(
+                    req_url, tip="文章列表接口被封堵，一天后再采集", sleep_time=86400
+                )
+
             # 判断是否为被封的账号， 被封账号没有文章列表
             __biz = tools.get_param(req_url, "__biz")
 
@@ -246,8 +254,8 @@ class DealData:
                     can_msg_continue = tools.get_info(text, regex, fetch_one=True)
                     if can_msg_continue == "0":  # 无更多文章
                         log.info("抓取到列表底部 无更多文章，公众号 {} 抓取完毕".format(__biz))
-                        new_last_publish_time = self._task_manager.get_new_last_article_publish_time(
-                            __biz
+                        new_last_publish_time = (
+                            self._task_manager.get_new_last_article_publish_time(__biz)
                         )
                         if not new_last_publish_time:
                             # 标记成僵尸号
@@ -288,8 +296,8 @@ class DealData:
                     can_msg_continue = text.get("can_msg_continue")
                     if not can_msg_continue:  # 无更多文章
                         log.info("抓取到列表底部 无更多文章，公众号 {} 抓取完毕".format(__biz))
-                        new_last_publish_time = self._task_manager.get_new_last_article_publish_time(
-                            __biz
+                        new_last_publish_time = (
+                            self._task_manager.get_new_last_article_publish_time(__biz)
                         )
                         self._task_manager.update_account_last_publish_time(
                             __biz, new_last_publish_time
@@ -347,7 +355,7 @@ class DealData:
             '//div[@class="rich_media_content "]|//div[@class="rich_media_content"]|//div[@class="share_media"]'
         )
         title = (
-            selector.xpath('//h2[@class="rich_media_title"]/text()')
+            selector.xpath('//*[@class="rich_media_title"]/text()')
             .extract_first(default="")
             .strip()
         )
