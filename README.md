@@ -12,6 +12,8 @@
 
 逆向方式抓取的方案请查看：[https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541](https://wx.zsxq.com/dweb2/index/topic_detail/215584212588541)
 
+<!-- SPONSOR_START expires=2026-08-28 timezone=Asia/Shanghai -->
+
 ## 赞助商
 
 <a href="https://www.ipwo.net/?ref=githubbaolisi" target="_blank">
@@ -24,6 +26,8 @@
 > IPWO爬虫代理资源为采集、跨境与测试项目提供支持(充裕流量免费试用，爬虫使用强烈推荐!!! 折扣码boris享9折！)学习者务必遵循法律！
 IPWO提供的真实住宅 IP，大幅降低被封禁风险。
 195 + 国家 / 地区精准定位，支持HTTP/HTTPS/SOCKSS协议，兼容性强轻松应对大型爬虫任务。让爬虫更简单，让数据更安全。戳本信息注册可获得有效保护账号的高匿名ip流量。
+
+<!-- SPONSOR_END -->
 
 ## 功能：
 
@@ -214,5 +218,4 @@ IPWO提供的真实住宅 IP，大幅降低被封禁风险。
 微信: boris_tm
 
 ![赞赏码](media/%E8%B5%9E%E8%B5%8F%E7%A0%81.png)
-
 
