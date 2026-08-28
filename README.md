@@ -30,7 +30,7 @@
 
 1. **免安装**：支持mac、window，双击软件即可执行
 2. **自动化**：只需要配置好待监控的公众号列表，启动软件后即可每日自动抓取公众号及文章等信息
-3. **好对接**：抓取到的数据使用mysql存储，方便处理数据
+3. **好对接**：抓取到的数据使用 MySQL/MariaDB 存储，方便处理数据
 4. **不漏采**：采用任务状态标记的方式，防止遗漏每一个公众号、每一篇文章
 5. **分布式**：支持多个微信号同时采集，微信客户端支持Android、iphone、Mac、Window 全平台
 
@@ -53,8 +53,12 @@
 
 ## 所需环境
 
-1. mysql：用来存储抓取到的数据以及任务表
-2. redis：任务缓存，减少操作mysql的次数
+1. MySQL 或 MariaDB：用来存储抓取到的数据以及任务表（`docker-compose.yml` 默认使用 MariaDB）
+2. redis：任务缓存，减少操作数据库的次数
+
+### Docker Compose
+
+`docker-compose up` 会启动 MariaDB（`bitnami/mariadb`）、Redis 和 wechat-spider。默认 `config.yaml` 中 `mysqldb.ip` 为 `mariadb`，使用 PyMySQL 连接。
 
 ## 安装配置
 
